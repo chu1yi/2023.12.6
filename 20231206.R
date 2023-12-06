@@ -177,3 +177,14 @@ website = read_html(html_character)
 needed_html = website %>% html_nodes("a")
 needed_txt = needed_html %>% html_text()
 needed_txt
+
+
+library(RCurl)
+library(rvest)
+
+my_table = matrix("", nrow = 10, ncol = 2)
+colnames(my_table) = c("Title", "url")
+
+URL = 'https://www.ptt.cc/bbs/Gossiping/index.html'
+curl = getCurlHandle()
+curlSetOpt(cookie = "over18=1", followlocation = TRUE, curl = curl)
